@@ -1,3 +1,6 @@
+// 'use client'
+import dayjs from 'dayjs';
+
 export default async function NoteList({ notes }) {
   const arr = Object.entries(notes);
 
@@ -13,7 +16,7 @@ export default async function NoteList({ notes }) {
       return <li key={noteId}>
         <header className="sidebar-note-header">
           <strong>{title}</strong>
-          <small>{updateTime}</small>
+          <small>{dayjs(updateTime).format('YYYY-MM-DD hh:mm:ss')}</small>
         </header>
       </li>
     })}
